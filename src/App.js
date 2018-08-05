@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+
 import './App.css';
+
+import Heading from './components/Heading/Heading';
+import Seasons from './components/Seasons/Seasons';
+import Addition from './components/Addition/Addition';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-          <div>Heading</div>
-          <div>Seasons</div>
-          <div>Addition</div>
+      <div className="app">
+          <Heading />
+          <Seasons />
+          <Addition />
       </div>
     );
   }

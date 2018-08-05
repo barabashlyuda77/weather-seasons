@@ -1,0 +1,26 @@
+.season {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dbd1ce;
+    border-radius: 3px;
+    width: 150px;
+    height: 201px;
+    margin: 0 30px;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.image {
+    width: 100%;
+    object-fit: cover;
+    flex: 1;
+    opacity: 0.3;
+}
+
+.active {
+    opacity: 1;
+}
