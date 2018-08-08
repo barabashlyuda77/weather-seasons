@@ -2,9 +2,26 @@ import React from 'react';
 
 import './Addition.css';
 
-const addition = () => {
+const texts = [
+    { title: 'summer', text: 'Summer' },
+    { title: 'autumn', text: 'Autumn' },
+    { title: 'winter', text: 'Winter' },
+    { title: 'spring', text: 'Spring' }
+];
+
+const displayText = (title, array) => {
+    if (!title) {
+        return '';
+    }
+    
+    return array.find(season => {
+        return season.title === title;
+    }).text;
+}
+
+const addition = (props) => {
     return <div className="addition">
-        <p className="text">Summer is the hottest of the four temperate seasons, falling after spring and before autumn. At the summer solstice, the days are longest and the nights are shortest, with day-length decreasing as the season progresses after the solstice.</p>
+        <p className="text">{displayText(props.getTitle, texts)}</p>
     </div>
 }
 

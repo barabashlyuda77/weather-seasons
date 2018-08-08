@@ -7,6 +7,7 @@ class Season extends Component {
 
     seasonClickHandler = () => {
         this.props.clickHandler(this.props.index);
+        this.props.activateAddition(this.props.title);
     }
 
     render () {

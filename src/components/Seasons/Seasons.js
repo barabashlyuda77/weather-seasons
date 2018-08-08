@@ -24,6 +24,10 @@ class Seasons extends Component {
     showImage = (clickedSeasonIndex) =>
         this.setState({ activeImg: clickedSeasonIndex });
 
+    notifyApp = (title) => {
+        this.props.sendTitleToApp(title);
+    }
+
     render () {
         return (
             <div className="seasons">
@@ -36,6 +40,7 @@ class Seasons extends Component {
                         image={season.image}
                         isActive={index === this.state.activeImg ? true : false}
                         clickHandler={this.showImage}
+                        activateAddition={this.notifyApp}
                     />
                 )}
             </div>
