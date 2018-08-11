@@ -3,6 +3,9 @@
     margin: 80px;
     padding: 10px;
 }
+.hide {
+    display: none;
+}
 
 .text {
     font-family: 'Open Sans', sans-serif;

@@ -13,14 +13,16 @@ const displayText = (title, array) => {
     if (!title) {
         return '';
     }
-    
+
     return array.find(season => {
         return season.title === title;
     }).text;
 }
 
 const addition = (props) => {
-    return <div className="addition">
+    const wrapperClassName = props.getBoxStatus ?  "addition" : "addition hide";
+
+    return <div className={wrapperClassName}>
         <p className="text">{displayText(props.getTitle, texts)}</p>
     </div>
 }
