@@ -9,7 +9,7 @@ import Autumn from '../../images/autumn.jpeg';
 import Winter from '../../images/winter.jpeg';
 import Spring from '../../images/spring.jpeg';
 
-const weatherSeasons = [
+const seasons = [
     { title: 'summer', image: Summer },
     { title: 'autumn', image: Autumn },
     { title: 'winter', image: Winter },
@@ -18,29 +18,26 @@ const weatherSeasons = [
 
 class Seasons extends Component {
     state = {
-        activeImg: null
+        activeSeasonIndex: null
     }
 
-    showImage = (clickedSeasonIndex) =>
-        this.setState({ activeImg: clickedSeasonIndex });
-
-    notifyApp = (title) => {
-        this.props.sendTitleToApp(title);
+    activateSeason = (clickedSeasonIndex, seasonTitle) => {
+        this.props.onSeasonChange(seasonTitle);
+        this.setState({ activeSeasonIndex: clickedSeasonIndex });
     }
 
     render () {
         return (
             <div className="seasons">
-                {weatherSeasons.map((season, index) =>
+                {seasons.map((season, index) =>
                     <Season
                         key={season.title}
                         index={index}
                         alt={season.title}
                         title={season.title}
                         image={season.image}
-                        isActive={index === this.state.activeImg ? true : false}
-                        clickHandler={this.showImage}
-                        activateAddition={this.notifyApp}
+                        isActive={index === this.state.activeSeasonIndex}
+                        onActivate={this.activateSeason}
                     />
                 )}
             </div>

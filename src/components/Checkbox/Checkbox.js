@@ -1,9 +1,8 @@
 import React from 'react';
 
-
 const checkbox = (props) => {
     const updateStatusBox = (event) => {
-        props.sendBoxStatus(event.target.checked);
+        props.onChange(event.target.checked);
     };
 
     return <div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Addition.css';
+import './SeasonAddition.css';
 
 const texts = [
     { title: 'summer', text: 'Summer' },
@@ -9,22 +9,22 @@ const texts = [
     { title: 'spring', text: 'Spring' }
 ];
 
-const displayText = (title, array) => {
+const displayText = (title, texts) => {
     if (!title) {
         return '';
     }
 
-    return array.find(season => {
+    return texts.find(season => {
         return season.title === title;
     }).text;
 }
 
-const addition = (props) => {
-    const wrapperClassName = props.getBoxStatus ?  "addition" : "addition hide";
+const SeasonAddition = (props) => {
+    const wrapperClassName = props.visible ?  "seasonAddition" : "seasonAddition hide";
 
     return <div className={wrapperClassName}>
-        <p className="text">{displayText(props.getTitle, texts)}</p>
+        <p className="text">{displayText(props.season, texts)}</p>
     </div>
 }
 
-export default addition;
+export default SeasonAddition;

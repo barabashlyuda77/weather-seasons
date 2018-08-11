@@ -4,21 +4,21 @@ import './App.css';
 
 import Heading from './components/Heading/Heading';
 import Seasons from './components/Seasons/Seasons';
-import Addition from './components/Addition/Addition';
+import SeasonAddition from './components/SeasonAddition/SeasonAddition';
 import Checkbox from './components/Checkbox/Checkbox';
-
 
 class App extends Component {
   state = {
-      title: null,
-      checked: true
-  }
-  notifyAddition = (title) => {
-      this.setState({ title })
+      season: null,
+      checkboxChecked: true
   }
 
-  displayAddition = (status) => {
-      this.setState({ checked: status })
+  changeSeason = (season) => {
+      this.setState({ season })
+  }
+
+  updateCheckboxStatus = (isChecked) => {
+      this.setState({ checkboxChecked: isChecked })
   }
 
   render() {
@@ -26,14 +26,14 @@ class App extends Component {
       <div className="app">
           <Heading />
           <Checkbox
-              sendBoxStatus={this.displayAddition}
+              onChange={this.updateCheckboxStatus}
           />
           <Seasons
-              sendTitleToApp={this.notifyAddition}
+              onSeasonChange={this.changeSeason}
            />
-          <Addition
-              getTitle={this.state.title}
-              getBoxStatus={this.state.checked}
+          <SeasonAddition
+              season={this.state.season}
+              visible={this.state.checkboxChecked}
           />
       </div>
     );
